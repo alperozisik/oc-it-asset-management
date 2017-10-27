@@ -1,11 +1,9 @@
 const extend = require('js-base/core/extend');
-const PgSearchDesign = require('ui/ui_pgSearch');
+const PgEditAssetDesign = require('ui/ui_pgEditAsset');
 const modifyPage = require("../lib/modifyPage");
-const ActionKeyType = require('sf-core/ui/actionkeytype');
-const HeaderBarItem = require('sf-core/ui/headerbaritem');
-const Image = require('sf-core/ui/image');
 const Picker = require("sf-core/ui/picker");
 const Router = require("sf-core/ui/router");
+const ActionKeyType = require('sf-core/ui/actionkeytype');
 const BarcodeScanner = require("sf-extension-barcode").BarcodeScanner;
 const permission = require("sf-extension-utils").permission;
 const Application = require("sf-core/application");
@@ -18,8 +16,7 @@ const models = [
     "Model E"
 ];
 
-
-const PgSearch = extend(PgSearchDesign)(
+const PgEditAsset = extend(PgEditAssetDesign)(
     function(_super) {
         _super(this);
         this.onShow = onShow.bind(this, this.onShow.bind(this));
@@ -44,14 +41,13 @@ const PgSearch = extend(PgSearchDesign)(
         page.formItems = formItems;
 
         page.onHide = () => page.tbLocation.removeFocus();
-        
+
         page.barcodeScanner = new BarcodeScanner();
         page.barcodeScanner.onResult = function(e) {
             var barcode = e.barcode;
-            Router.go("pgAddNewRecord", {
-                barcode: barcode
-            });
+            page.tbAssetNumber.text = barcode;
         };
+
     });
 
 /**
@@ -64,6 +60,24 @@ function onShow(superOnShow, data = {}) {
     superOnShow();
     const page = this;
     modifyPage(page);
+    if (data.newAsset) {
+        let newBarcode = null;
+        data.data && (newBarcode = data.data.barcode);
+        page.headerBar.title = "New Asset";
+        page.tbAssetNumber.text = newBarcode || "";
+        page.tbSerialNumber.text = "";
+        page.tbMake.text = "";
+        page.lblModel.text = "Model";
+        page.tbLocation.text = "";
+    }
+    else {
+        page.headerBar.title = "Edit Asset";
+        page.tbAssetNumber.text = "11111111";
+        page.tbSerialNumber.text = "123QWE123456";
+        page.tbMake.text = "Lorem Ipsum";
+        page.lblModel.text = "Macbook Pro";
+        page.tbLocation.text = "Lorem Ipsum";
+    }
 }
 
 /**
@@ -73,6 +87,7 @@ function onShow(superOnShow, data = {}) {
  */
 function onLoad(superOnLoad) {
     superOnLoad();
+
     const page = this;
 
     for (let i in page.formItems) {
@@ -83,7 +98,7 @@ function onLoad(superOnLoad) {
             if (lastItem) {
                 formItem.item.actionKeyType = ActionKeyType.SEARCH;
                 formItem.item.onActionButtonPress = () => {
-                    submitSearchForm.call(page);
+                    save.call(page);
                 };
             }
             else {
@@ -96,32 +111,23 @@ function onLoad(superOnLoad) {
         }
     }
 
-    page.btnSearch.onPress = submitSearchForm.bind(page);
+    page.btnSave.onPress = save.bind(page);
     page.flModel.onTouchEnded = pickModel.bind(page);
 
-    var hbiScan = new HeaderBarItem({
-        image: Image.createFromFile("images://camera_search.png"),
-        onPress: function() {
-            permission.getPermission(Application.android.Permissions.CAMERA,
-                function(err) {
-                    if (err) return;
-                    page.barcodeScanner.show({ page: page, tag: "Search" });
-                });
-
-        }
-    });
-    this.headerBar.setItems([hbiScan]);
-    page.hbiScan = hbiScan;
-
-
+    page.imgCamera.onTouchEnded = function() {
+        permission.getPermission(Application.android.Permissions.CAMERA,
+            function(err) {
+                if (err) return;
+                page.barcodeScanner.show({ page: page, tag: "Search" });
+            });
+    };
 }
 
-function submitSearchForm() {
+
+function save() {
     const page = this;
-
     page.tbLocation.removeFocus();
-
-    Router.go("pgAddNewRecord");
+    Router.goBack();
 }
 
 function pickModel() {
@@ -145,6 +151,4 @@ function pickModel() {
     modelPicker.show(okCallback, cancelCallback);
 }
 
-
-
-module && (module.exports = PgSearch);
+module && (module.exports = PgEditAsset);

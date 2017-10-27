@@ -16,7 +16,7 @@
 	<key>NSBluetoothPeripheralUsageDescription</key>
 	<string>Your NSBluetoothPeripheralUsageDescription</string>
 	<key>NSCameraUsageDescription</key>
-	<string>Your NSCameraUsageDescription</string>
+	<string>${PRODUCT_NAME} Camera Usage</string>
 	<key>NSAppleMusicUsageDescription</key>
 	<string>Your NSAppleMusicUsageDescription</string>
 	<key>NSMotionUsageDescription</key>

@@ -2,6 +2,7 @@ const extend = require('js-base/core/extend');
 const PgAssetListDesign = require('ui/ui_pgAssetList');
 const LviAsset = require("../components/LviAsset");
 const Router = require("sf-core/ui/router");
+const modifyPage = require("../lib/modifyPage");
 
 const PgAssetList = extend(PgAssetListDesign)(
     function(_super) {
@@ -20,6 +21,7 @@ const PgAssetList = extend(PgAssetListDesign)(
 function onShow(superOnShow, data = {}) {
     superOnShow();
     const page = this;
+    modifyPage(page);
     const lvAssets = page.lvAssets;
     lvAssets.itemCount = 8;
     lvAssets.refreshData();

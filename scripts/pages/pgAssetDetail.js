@@ -1,17 +1,12 @@
-/* 
-		You can modify its contents.
-*/
 const extend = require('js-base/core/extend');
 const PgAssetDetailDesign = require('ui/ui_pgAssetDetail');
+const Router = require("sf-core/ui/router");
+const modifyPage = require("../lib/modifyPage");
 
 const PgAssetDetail = extend(PgAssetDetailDesign)(
-  // Constructor
   function(_super) {
-    // Initalizes super class for this page scope
     _super(this);
-    // overrides super.onShow method
     this.onShow = onShow.bind(this, this.onShow.bind(this));
-    // overrides super.onLoad method
     this.onLoad = onLoad.bind(this, this.onLoad.bind(this));
 
   });
@@ -22,8 +17,10 @@ const PgAssetDetail = extend(PgAssetDetailDesign)(
  * @param {function} superOnShow super onShow function
  * @param {Object} parameters passed from Router.go function
  */
-function onShow(superOnShow) {
+function onShow(superOnShow, data = {}) {
   superOnShow();
+  const page = this;
+  modifyPage(page);
 }
 
 /**
@@ -33,6 +30,12 @@ function onShow(superOnShow) {
  */
 function onLoad(superOnLoad) {
   superOnLoad();
+
+  this.btnEdit.onPress = () => {
+    Router.go("pgEditAsset", {
+      assetDetails: {}
+    });
+  };
 }
 
 module && (module.exports = PgAssetDetail);

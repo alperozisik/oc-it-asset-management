@@ -24,7 +24,8 @@ var pages = ["pgLogin",
     "pgSearch",
     "pgAddNewRecord",
     "pgAssetList",
-    "pgAssetDetail"
+    "pgAssetDetail",
+    "pgEditAsset"
 ];
 
 pages.forEach(pageName => Router.add(pageName, require(`./pages/${pageName}`)));
