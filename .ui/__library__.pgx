@@ -9,26 +9,16 @@
 			},
 			"userProps": {},
 			"className": ".page",
-			"version": "6.5.1",
+			"version": "6.5.2",
 			"props": {
-				"backgroundColor": "#EEEEEE",
-				"orientation": "PORTRAIT",
-				"flexProps": {
-					"alignContent": "STRETCH",
-					"alignItems": "STRETCH",
-					"direction": "INHERIT",
-					"flexDirection": "COLUMN",
-					"flexWrap": "NOWRAP",
-					"justifyContent": "FLEX_START"
-				},
 				"name": "__library__",
-				"parent": null,
 				"children": [
 					"23c1-aa21-38ff-148e",
-					"76f4-a7ec-36e9-a444"
+					"76f4-a7ec-36e9-a444",
+					"1fde-4f6b-9f12-b2dc"
 				],
-				"width": 168.75,
-				"height": 300.15000000000003
+				"parent": null,
+				"orientation": "PORTRAIT"
 			}
 		},
 		{
@@ -40,11 +30,9 @@
 			"userProps": {},
 			"className": ".statusBar",
 			"props": {
-				"color": "#9D8B6E",
-				"visible": false,
 				"name": "statusBar",
-				"parent": "57f4-201f-4bfc-5fc6",
 				"children": [],
+				"parent": "57f4-201f-4bfc-5fc6",
 				"isRemovable": false
 			}
 		},
@@ -59,14 +47,267 @@
 			},
 			"className": ".headerBar",
 			"props": {
-				"title": "__library__",
-				"titleColor": "#FFFFFF",
-				"visible": false,
-				"backgroundColor": "#9D8B6E",
 				"name": "headerBar",
-				"parent": "57f4-201f-4bfc-5fc6",
+				"title": "__library__",
 				"children": [],
+				"parent": "57f4-201f-4bfc-5fc6",
 				"isRemovable": false
+			}
+		},
+		{
+			"type": "ListViewItem",
+			"id": "1fde-4f6b-9f12-b2dc",
+			"source": {
+				"page": "__library__"
+			},
+			"themeProps": {
+				"Sizes": "Default"
+			},
+			"userProps": {
+				"width": 374.6031746031746,
+				"height": 161.9047619047619,
+				"paddingTop": 17,
+				"left": 0,
+				"top": 3.1746031746031744,
+				"paddingLeft": 16,
+				"paddingRight": 16,
+				"id": null
+			},
+			"className": ".listViewItem",
+			"props": {
+				"id": null,
+				"name": "lviAsset",
+				"children": [
+					"443b-8979-4437-6894",
+					"84b7-3b6a-fa76-373c",
+					"732a-9316-0ce6-af14",
+					"deda-e52c-4c41-090b"
+				],
+				"parent": "57f4-201f-4bfc-5fc6"
+			}
+		},
+		{
+			"type": "Label",
+			"id": "443b-8979-4437-6894",
+			"source": {
+				"page": "__library__"
+			},
+			"themeProps": {
+				"Sizes": "Default"
+			},
+			"userProps": {
+				"width": null,
+				"height": 24,
+				"textColor": "rgba( 74, 74, 74, 1 )",
+				"text": "Adam Stewart",
+				"id": 1001,
+				"usePageVariable": false,
+				"marginBottom": 16,
+				"font": {
+					"size": 20,
+					"family": "Lato"
+				}
+			},
+			"className": ".label",
+			"props": {
+				"id": 1001,
+				"name": "lblAssetName",
+				"text": "Adam Stewart",
+				"usePageVariable": false,
+				"children": [],
+				"parent": "1fde-4f6b-9f12-b2dc"
+			}
+		},
+		{
+			"type": "FlexLayout",
+			"id": "84b7-3b6a-fa76-373c",
+			"source": {
+				"page": "__library__"
+			},
+			"themeProps": {
+				"Sizes": "Default"
+			},
+			"userProps": {
+				"width": null,
+				"height": 26,
+				"id": 1002,
+				"marginBottom": 18,
+				"flexProps": {
+					"flexDirection": "ROW"
+				}
+			},
+			"className": ".flexLayout",
+			"props": {
+				"id": 1002,
+				"name": "flAssetDetails",
+				"children": [
+					"66f8-b261-a4b2-5b44",
+					"8460-bf16-4ae2-8f85"
+				],
+				"parent": "1fde-4f6b-9f12-b2dc"
+			}
+		},
+		{
+			"type": "ImageView",
+			"id": "66f8-b261-a4b2-5b44",
+			"source": {
+				"page": "__library__"
+			},
+			"themeProps": {
+				"Sizes": "Default"
+			},
+			"userProps": {
+				"width": 25,
+				"height": null,
+				"id": 1003,
+				"marginRight": 10,
+				"image": "computer.png"
+			},
+			"className": ".imageView",
+			"props": {
+				"id": 1003,
+				"name": "imgComputer",
+				"children": [],
+				"parent": "84b7-3b6a-fa76-373c"
+			}
+		},
+		{
+			"type": "Label",
+			"id": "8460-bf16-4ae2-8f85",
+			"source": {
+				"page": "__library__"
+			},
+			"themeProps": {
+				"Sizes": "Default"
+			},
+			"userProps": {
+				"usePageVariable": false,
+				"text": "2017 - Macbook Pro - 123QWE123456",
+				"width": null,
+				"height": null,
+				"id": 1004,
+				"flexProps": {
+					"flexGrow": 1
+				}
+			},
+			"className": ".label",
+			"props": {
+				"id": 1004,
+				"name": "lblAssetDetail",
+				"text": "2017 - Macbook Pro - 123QWE123456",
+				"usePageVariable": false,
+				"children": [],
+				"parent": "84b7-3b6a-fa76-373c"
+			}
+		},
+		{
+			"type": "FlexLayout",
+			"id": "732a-9316-0ce6-af14",
+			"source": {
+				"page": "__library__"
+			},
+			"themeProps": {
+				"Sizes": "Default"
+			},
+			"userProps": {
+				"width": null,
+				"height": 26,
+				"id": 1005,
+				"flexProps": {
+					"flexDirection": "ROW"
+				}
+			},
+			"className": ".flexLayout",
+			"props": {
+				"id": 1005,
+				"name": "flLocation",
+				"children": [
+					"c316-728e-35cd-9df2",
+					"57d4-4fa8-b590-8703"
+				],
+				"parent": "1fde-4f6b-9f12-b2dc"
+			}
+		},
+		{
+			"type": "ImageView",
+			"id": "c316-728e-35cd-9df2",
+			"source": {
+				"page": "__library__"
+			},
+			"themeProps": {
+				"Sizes": "Default"
+			},
+			"userProps": {
+				"width": 25,
+				"height": null,
+				"id": 1007,
+				"marginRight": 10,
+				"image": "location.png"
+			},
+			"className": ".imageView",
+			"props": {
+				"id": 1007,
+				"name": "imgLocation",
+				"children": [],
+				"parent": "732a-9316-0ce6-af14"
+			}
+		},
+		{
+			"type": "Label",
+			"id": "57d4-4fa8-b590-8703",
+			"source": {
+				"page": "__library__"
+			},
+			"themeProps": {
+				"Sizes": "Default"
+			},
+			"userProps": {
+				"usePageVariable": false,
+				"text": "IT Department",
+				"width": null,
+				"height": null,
+				"id": 1006,
+				"flexProps": {
+					"flexGrow": 1
+				}
+			},
+			"className": ".label",
+			"props": {
+				"id": 1006,
+				"name": "lblLocation",
+				"text": "IT Department",
+				"usePageVariable": false,
+				"children": [],
+				"parent": "732a-9316-0ce6-af14"
+			}
+		},
+		{
+			"type": "FlexLayout",
+			"id": "deda-e52c-4c41-090b",
+			"source": {
+				"page": "__library__"
+			},
+			"themeProps": {
+				"Sizes": "Default"
+			},
+			"userProps": {
+				"width": null,
+				"height": 0.5,
+				"left": 16,
+				"right": 16,
+				"bottom": 0,
+				"backgroundColor": "rgba( 151, 151, 151, 1 )",
+				"id": 1008,
+				"flexProps": {
+					"positionType": "ABSOLUTE"
+				}
+			},
+			"className": ".flexLayout",
+			"props": {
+				"id": 1008,
+				"name": "flLine",
+				"children": [],
+				"parent": "1fde-4f6b-9f12-b2dc"
 			}
 		}
 	]

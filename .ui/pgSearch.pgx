@@ -15,7 +15,7 @@
 				}
 			},
 			"className": ".page",
-			"version": "6.5.1",
+			"version": "6.5.2",
 			"props": {
 				"backgroundColor": "#FFFFFF",
 				"orientation": "PORTRAIT",
@@ -722,6 +722,7 @@
 				"borderColor": "rgba(0,0,0,1)",
 				"borderWidth": 0,
 				"marginBottom": 20,
+				"usePageVariable": true,
 				"flexProps": {
 					"alignSelf": "AUTO",
 					"direction": "INHERIT",
@@ -735,66 +736,10 @@
 				"name": "flModel",
 				"parent": "9fc2-6d22-ca2e-698b",
 				"children": [
-					"f4ac-da10-0d76-a047",
+					"0e08-6432-f0b6-5a4d",
 					"1003-51d0-1d38-832f",
 					"a04f-16b1-08c3-7e03"
-				],
-				"usePageVariable": true
-			}
-		},
-		{
-			"type": "TextBox",
-			"id": "f4ac-da10-0d76-a047",
-			"themeProps": {
-				"Sizes": "Default"
-			},
-			"userProps": {
-				"marginLeft": 8.5,
-				"marginRight": 8.5,
-				"text": null,
-				"usePageVariable": true,
-				"height": null,
-				"width": null,
-				"hint": "Model",
-				"textColor": "rgba( 74, 74, 74, 1 )",
-				"flexProps": {
-					"flexGrow": 1
-				},
-				"font": {
-					"size": 14
-				}
-			},
-			"className": ".textBox",
-			"props": {
-				"height": null,
-				"width": null,
-				"touchEnabled": true,
-				"text": null,
-				"visible": true,
-				"backgroundColor": "#FFFFFF",
-				"alpha": 1,
-				"borderColor": "rgba(0,0,0,1)",
-				"borderWidth": 0,
-				"textColor": "rgba( 74, 74, 74, 1 )",
-				"textAlignment": "MIDLEFT",
-				"marginLeft": 8.5,
-				"marginRight": 8.5,
-				"usePageVariable": true,
-				"hint": "Model",
-				"font": {
-					"size": 14,
-					"bold": false,
-					"italic": false,
-					"family": "Lato"
-				},
-				"flexProps": {
-					"alignSelf": "AUTO",
-					"positionType": "RELATIVE",
-					"flexGrow": 1
-				},
-				"name": "tbModel",
-				"parent": "923a-1680-5f56-c013",
-				"children": []
+				]
 			}
 		},
 		{
@@ -1022,6 +967,59 @@
 				"parent": "923a-1680-5f56-c013",
 				"children": [],
 				"imageURL": "https://dispatcher.r0.smartface.io/smartface9/oc-assets/ui-editor/img/dropdown.png?os=iOS&osVersion=10.2&density=401&densityRatio=0.3333333333333333&zoomLevel=1&brandModel=iPhone%207%20Plus?random=0.4507723046810854"
+			}
+		},
+		{
+			"type": "Label",
+			"id": "0e08-6432-f0b6-5a4d",
+			"themeProps": {
+				"Sizes": "Default"
+			},
+			"userProps": {
+				"width": null,
+				"height": null,
+				"marginLeft": 8.5,
+				"marginRight": 8.5,
+				"text": "Model",
+				"usePageVariable": true,
+				"flexProps": {
+					"flexGrow": 1
+				},
+				"font": {
+					"size": 14
+				}
+			},
+			"className": ".label",
+			"props": {
+				"width": null,
+				"height": null,
+				"touchEnabled": true,
+				"text": "Model",
+				"visible": true,
+				"multiline": false,
+				"backgroundColor": "rgba(0,0,0,0)",
+				"alpha": 1,
+				"borderColor": "rgba(0,0,0,1)",
+				"borderWidth": 0,
+				"textColor": "#4A4A4A",
+				"textAlignment": "MIDLEFT",
+				"marginLeft": 8.5,
+				"marginRight": 8.5,
+				"font": {
+					"size": 14,
+					"bold": false,
+					"italic": false,
+					"family": "Lato"
+				},
+				"flexProps": {
+					"alignSelf": "AUTO",
+					"positionType": "RELATIVE",
+					"flexGrow": 1
+				},
+				"name": "lblModel",
+				"parent": "923a-1680-5f56-c013",
+				"children": [],
+				"usePageVariable": true
 			}
 		}
 	]

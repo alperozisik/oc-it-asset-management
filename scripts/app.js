@@ -21,7 +21,10 @@ stylerBuilder.registerThemes(settings.config.theme.themes || "Defaults");
 stylerBuilder.setActiveTheme(settings.config.theme.currentTheme);
 
 var pages = ["pgLogin",
-    "pgSearch"
+    "pgSearch",
+    "pgAddNewRecord",
+    "pgAssetList",
+    "pgAssetDetail"
 ];
 
 pages.forEach(pageName => Router.add(pageName, require(`./pages/${pageName}`)));

@@ -1,0 +1,84 @@
+{
+	"components": [
+		{
+			"type": "Page",
+			"id": "a3c5-d558-d90c-6498",
+			"initialized": true,
+			"themeProps": {
+				"Page": "Default"
+			},
+			"userProps": {},
+			"className": ".page",
+			"version": "6.5.2",
+			"props": {
+				"name": "pgAssetList",
+				"children": [
+					"66c4-0bbf-2bf9-941e",
+					"9597-a6fd-f048-a0c5",
+					"824d-9ba3-fd8b-5773"
+				],
+				"parent": null,
+				"orientation": "PORTRAIT"
+			}
+		},
+		{
+			"type": "StatusBar",
+			"id": "66c4-0bbf-2bf9-941e",
+			"themeProps": {
+				"StatusBar": "Default"
+			},
+			"userProps": {
+				"style": "LIGHTCONTENT"
+			},
+			"className": ".statusBar",
+			"props": {
+				"name": "statusBar",
+				"children": [],
+				"parent": "a3c5-d558-d90c-6498",
+				"isRemovable": false
+			}
+		},
+		{
+			"type": "HeaderBar",
+			"id": "9597-a6fd-f048-a0c5",
+			"themeProps": {
+				"HeaderBar": "Default"
+			},
+			"userProps": {
+				"title": "Asset List"
+			},
+			"className": ".headerBar",
+			"props": {
+				"name": "headerBar",
+				"title": "Asset List",
+				"children": [],
+				"parent": "a3c5-d558-d90c-6498",
+				"isRemovable": false
+			}
+		},
+		{
+			"type": "ListView",
+			"id": "824d-9ba3-fd8b-5773",
+			"themeProps": {
+				"Sizes": "Default"
+			},
+			"userProps": {
+				"usePageVariable": true,
+				"height": null,
+				"width": null,
+				"itemCount": null,
+				"rowHeight": 140,
+				"flexProps": {
+					"flexGrow": 1
+				}
+			},
+			"className": ".listView",
+			"props": {
+				"name": "lvAssets",
+				"usePageVariable": true,
+				"children": [],
+				"parent": "a3c5-d558-d90c-6498"
+			}
+		}
+	]
+}
