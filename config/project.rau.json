@@ -3,16 +3,16 @@
         "rau": {
             "formatVersion": "1.0.0",
             "hashType": "md5",
-            "profileKey": "myAppKey-Secret",
+            "profileKey": "6pfEoLqEFowJ9YyQ23gTPOWsEMDoyOdI",
             "revision": 1,
-            "channels": ["production", "test"],
+            "channels": ["demo"],
             "meta": {
                 "whatIsWritten in data": "as data object in here",
                 "also": "it can be null or missing",
                 "this": "is not parsed by release server"
             },
             "minimumSupportedVersion": "1.0.0",
-            "currentReleaseChannel": "test"
+            "currentReleaseChannel": "demo"
         }
     }
 }

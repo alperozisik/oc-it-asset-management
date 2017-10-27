@@ -12,14 +12,22 @@ Application.onUnhandledError = function(e) {
     });
 };
 
-
+require("sf-extension-utils");
 const Router = require("sf-core/ui/router");
+// require("./lib/additionalTheme");
 const stylerBuilder = require("library/styler-builder");
 const settings = require("./settings.json");
 stylerBuilder.registerThemes(settings.config.theme.themes || "Defaults");
 stylerBuilder.setActiveTheme(settings.config.theme.currentTheme);
 
-// Define routes and go to initial page of application
-Router.add("page1", require("./pages/page1"));
-Router.add("page2", require("./pages/page2"));
-Router.go("page1");
+var pages = ["pgLogin",
+    "pgSearch"
+];
+
+pages.forEach(pageName => Router.add(pageName, require(`./pages/${pageName}`)));
+
+Router.go("pgLogin", {
+    appStart: true
+});
+
+global.require = require;

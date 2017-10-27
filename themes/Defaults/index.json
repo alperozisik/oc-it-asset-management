@@ -30,17 +30,9 @@
 			}
 		},
 		"Button": {
-			"Sizes": {
-				"Default": ".button",
-				"Small": ".button-small",
-				"Medium": ".button-medium",
-				"Large": ".button-large"
-			},
-			"Highlights": {
-				"Default": ".button",
-				"Warning": ".button-warning",
-				"Error": ".button-error",
-				"Success": ".button-success"
+			"Colors": {
+				"Default": ".button-primaryColor",
+				"Alternative": ".button-secondaryColor"
 			}
 		},
 		"FlexLayout": {
