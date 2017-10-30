@@ -15,8 +15,7 @@
 				"children": [
 					"a001-5496-1494-b2e4",
 					"1e0c-3bed-6803-d711",
-					"93ef-adea-8a1b-6de8",
-					"d56f-1724-8b00-7b8d"
+					"93ef-adea-8a1b-6de8"
 				],
 				"parent": null,
 				"orientation": "PORTRAIT"
@@ -521,63 +520,6 @@
 				"name": "flLine",
 				"children": [],
 				"parent": "33b4-c8ce-f3cc-211b"
-			}
-		},
-		{
-			"type": "FlexLayout",
-			"id": "d56f-1724-8b00-7b8d",
-			"themeProps": {
-				"Sizes": "Default"
-			},
-			"userProps": {
-				"width": null,
-				"height": 60,
-				"marginBottom": 30,
-				"left": null,
-				"top": null,
-				"flexProps": {
-					"flexDirection": "ROW",
-					"justifyContent": "CENTER"
-				}
-			},
-			"className": ".flexLayout",
-			"props": {
-				"name": "flButton",
-				"children": [
-					"d874-0ae2-1eec-756c"
-				],
-				"parent": "e9f8-e788-13cf-6245"
-			}
-		},
-		{
-			"type": "Button",
-			"id": "d874-0ae2-1eec-756c",
-			"themeProps": {
-				"Colors": "Default"
-			},
-			"userProps": {
-				"usePageVariable": true,
-				"text": "Save",
-				"width": null,
-				"marginBottom": null,
-				"maxWidth": 338,
-				"minWidth": null,
-				"marginLeft": 37.5,
-				"marginRight": 37.5,
-				"left": null,
-				"top": null,
-				"flexProps": {
-					"alignSelf": "AUTO",
-					"flexGrow": 1
-				}
-			},
-			"className": ".button .button-primaryColor",
-			"props": {
-				"name": "btnSave",
-				"text": "Save",
-				"usePageVariable": true,
-				"children": [],
-				"parent": "d56f-1724-8b00-7b8d"
 			}
 		},
 		{

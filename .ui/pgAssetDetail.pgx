@@ -15,8 +15,7 @@
 				"children": [
 					"618f-3b95-af0a-c45f",
 					"9cdb-c7fa-5b04-510e",
-					"88ff-a81d-a98b-9f5d",
-					"5d87-6fba-7b35-b101"
+					"88ff-a81d-a98b-9f5d"
 				],
 				"parent": null,
 				"orientation": "PORTRAIT"
@@ -367,63 +366,6 @@
 				"name": "flLine",
 				"children": [],
 				"parent": "f9b0-bc44-6d92-4f23"
-			}
-		},
-		{
-			"type": "FlexLayout",
-			"id": "5d87-6fba-7b35-b101",
-			"themeProps": {
-				"Sizes": "Default"
-			},
-			"userProps": {
-				"width": null,
-				"height": 60,
-				"marginBottom": 30,
-				"left": null,
-				"top": null,
-				"flexProps": {
-					"flexDirection": "ROW",
-					"justifyContent": "CENTER"
-				}
-			},
-			"className": ".flexLayout",
-			"props": {
-				"name": "flButton",
-				"children": [
-					"05a6-a29d-d445-5d2b"
-				],
-				"parent": "b32d-425a-a963-e022"
-			}
-		},
-		{
-			"type": "Button",
-			"id": "05a6-a29d-d445-5d2b",
-			"themeProps": {
-				"Colors": "Default"
-			},
-			"userProps": {
-				"usePageVariable": true,
-				"text": "Edit",
-				"width": null,
-				"marginBottom": null,
-				"maxWidth": 338,
-				"minWidth": null,
-				"marginLeft": 37.5,
-				"marginRight": 37.5,
-				"left": null,
-				"top": null,
-				"flexProps": {
-					"alignSelf": "AUTO",
-					"flexGrow": 1
-				}
-			},
-			"className": ".button .button-primaryColor",
-			"props": {
-				"name": "btnEdit",
-				"text": "Edit",
-				"usePageVariable": true,
-				"children": [],
-				"parent": "5d87-6fba-7b35-b101"
 			}
 		},
 		{

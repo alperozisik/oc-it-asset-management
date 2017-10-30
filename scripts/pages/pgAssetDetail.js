@@ -2,6 +2,8 @@ const extend = require('js-base/core/extend');
 const PgAssetDetailDesign = require('ui/ui_pgAssetDetail');
 const Router = require("sf-core/ui/router");
 const modifyPage = require("../lib/modifyPage");
+const HeaderBarItem = require('sf-core/ui/headerbaritem');
+const Image = require('sf-core/ui/image');
 
 const PgAssetDetail = extend(PgAssetDetailDesign)(
   function(_super) {
@@ -21,6 +23,19 @@ function onShow(superOnShow, data = {}) {
   superOnShow();
   const page = this;
   modifyPage(page);
+
+  if (!page.hbiEdit) {
+    let hbiEdit = new HeaderBarItem({
+      image: Image.createFromFile("images://edit.png"),
+      onPress: function() {
+        Router.go("pgEditAsset", {
+          assetDetails: {}
+        });
+      }
+    });
+    this.headerBar.setItems([hbiEdit]);
+    page.hbiEdit = hbiEdit;
+  }
 }
 
 /**
@@ -30,12 +45,6 @@ function onShow(superOnShow, data = {}) {
  */
 function onLoad(superOnLoad) {
   superOnLoad();
-
-  this.btnEdit.onPress = () => {
-    Router.go("pgEditAsset", {
-      assetDetails: {}
-    });
-  };
 }
 
 module && (module.exports = PgAssetDetail);

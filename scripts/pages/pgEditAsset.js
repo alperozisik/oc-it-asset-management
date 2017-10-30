@@ -5,6 +5,8 @@ const Picker = require("sf-core/ui/picker");
 const Router = require("sf-core/ui/router");
 const ActionKeyType = require('sf-core/ui/actionkeytype');
 const barcodeScanner = require("../lib/barcodeScanner");
+const HeaderBarItem = require('sf-core/ui/headerbaritem');
+const Image = require('sf-core/ui/image');
 
 const models = [
     "Model A",
@@ -69,6 +71,17 @@ function onShow(superOnShow, data = {}) {
         page.lblModel.text = "Macbook Pro";
         page.tbLocation.text = "Lorem Ipsum";
     }
+
+    if (!page.hbiSave) {
+        let hbiSave = new HeaderBarItem({
+            image: Image.createFromFile("images://save.png"),
+            onPress: function() {
+                save.call(page);
+            }
+        });
+        this.headerBar.setItems([hbiSave]);
+        page.hbiSave = hbiSave;
+    }
 }
 
 /**
@@ -102,7 +115,6 @@ function onLoad(superOnLoad) {
         }
     }
 
-    page.btnSave.onPress = save.bind(page);
     page.flModel.onTouchEnded = pickModel.bind(page);
 
     page.imgCamera.onTouchEnded = function() {
