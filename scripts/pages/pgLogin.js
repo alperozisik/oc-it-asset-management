@@ -3,9 +3,10 @@ const PgLoginDesign = require('ui/ui_pgLogin');
 const rau = require("sf-extension-utils").rau;
 const fingerprint = require("sf-extension-utils").fingerprint;
 const Router = require("sf-core/ui/router");
-const Color = require('sf-core/ui/color');
 const Screen = require('sf-core/device/screen');
 const System = require('sf-core/device/system');
+const Application = require("sf-core/application");
+const AlertView = require('sf-core/ui/alertview');
 
 const PgLogin = extend(PgLoginDesign)(
     // Constructor
@@ -52,7 +53,7 @@ function onShow(superOnShow, data = {}) {
                 });
             }
         });
-        if(System.OS === "Android")
+        if (System.OS === "Android")
             page.svMain.layout.height = Screen.height - page.statusBar.height;
     }
 
@@ -68,6 +69,28 @@ function onLoad(superOnLoad) {
     superOnLoad();
     const page = this;
     page.svMain.layout.flexGrow = 1;
+
+    page.android.onBackButtonPressed = () => {
+        alert({
+            title: "Exit Application",
+            message: "Do you want to exit the application?",
+            buttons: [{
+                    text: "Yes",
+                    type: AlertView.Android.ButtonType.NEGATIVE,
+                    onClick: function() {
+                        Application.exit();
+                    },
+                },
+                {
+                    text: "No",
+                    type: AlertView.Android.ButtonType.POSITIVE,
+                    onClick: function() {
+                        //handle no answer here
+                    },
+                }
+            ]
+        });
+    };
 }
 
 module && (module.exports = PgLogin);
