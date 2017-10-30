@@ -63,7 +63,7 @@ function onShow(superOnShow, data = {}) {
 function onLoad(superOnLoad) {
     superOnLoad();
     const page = this;
-    // page.svMain.layout.flexGrow = 1;
+    page.svMain.layout.flexGrow = 1;
 }
 
 module && (module.exports = PgLogin);
