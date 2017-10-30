@@ -4,9 +4,7 @@ const modifyPage = require("../lib/modifyPage");
 const Picker = require("sf-core/ui/picker");
 const Router = require("sf-core/ui/router");
 const ActionKeyType = require('sf-core/ui/actionkeytype');
-const BarcodeScanner = require("sf-extension-barcode").BarcodeScanner;
-const permission = require("sf-extension-utils").permission;
-const Application = require("sf-core/application");
+const barcodeScanner = require("../lib/barcodeScanner");
 
 const models = [
     "Model A",
@@ -41,13 +39,6 @@ const PgEditAsset = extend(PgEditAssetDesign)(
         page.formItems = formItems;
 
         page.onHide = () => page.tbLocation.removeFocus();
-
-        page.barcodeScanner = new BarcodeScanner();
-        page.barcodeScanner.onResult = function(e) {
-            var barcode = e.barcode;
-            page.tbAssetNumber.text = barcode;
-        };
-
     });
 
 /**
@@ -115,11 +106,9 @@ function onLoad(superOnLoad) {
     page.flModel.onTouchEnded = pickModel.bind(page);
 
     page.imgCamera.onTouchEnded = function() {
-        permission.getPermission(Application.android.Permissions.CAMERA,
-            function(err) {
-                if (err) return;
-                page.barcodeScanner.show({ page: page, tag: "Search" });
-            });
+        barcodeScanner(page).then((e) => {
+            page.tbAssetNumber.text = e.text;
+        });
     };
 }
 

@@ -6,9 +6,7 @@ const HeaderBarItem = require('sf-core/ui/headerbaritem');
 const Image = require('sf-core/ui/image');
 const Picker = require("sf-core/ui/picker");
 const Router = require("sf-core/ui/router");
-const BarcodeScanner = require("sf-extension-barcode").BarcodeScanner;
-const permission = require("sf-extension-utils").permission;
-const Application = require("sf-core/application");
+const barcodeScanner = require("../lib/barcodeScanner");
 
 const models = [
     "Model A",
@@ -44,14 +42,19 @@ const PgSearch = extend(PgSearchDesign)(
         page.formItems = formItems;
 
         page.onHide = () => page.tbLocation.removeFocus();
-        
-        page.barcodeScanner = new BarcodeScanner();
-        page.barcodeScanner.onResult = function(e) {
-            var barcode = e.barcode;
-            Router.go("pgAddNewRecord", {
-                barcode: barcode
+
+        if (!page.hbiScan) {
+            let hbiScan = new HeaderBarItem({
+                image: Image.createFromFile("images://camera_search.png"),
+                onPress: function() {
+                    barcodeScanner(page).then((e)=> {
+                        page.tbAssetNumber.text = e.text;
+                    });
+                }
             });
-        };
+            this.headerBar.setItems([hbiScan]);
+            page.hbiScan = hbiScan;
+        }
     });
 
 /**
@@ -98,22 +101,6 @@ function onLoad(superOnLoad) {
 
     page.btnSearch.onPress = submitSearchForm.bind(page);
     page.flModel.onTouchEnded = pickModel.bind(page);
-
-    var hbiScan = new HeaderBarItem({
-        image: Image.createFromFile("images://camera_search.png"),
-        onPress: function() {
-            permission.getPermission(Application.android.Permissions.CAMERA,
-                function(err) {
-                    if (err) return;
-                    page.barcodeScanner.show({ page: page, tag: "Search" });
-                });
-
-        }
-    });
-    this.headerBar.setItems([hbiScan]);
-    page.hbiScan = hbiScan;
-
-
 }
 
 function submitSearchForm() {
