@@ -4,6 +4,8 @@ const rau = require("sf-extension-utils").rau;
 const fingerprint = require("sf-extension-utils").fingerprint;
 const Router = require("sf-core/ui/router");
 const Color = require('sf-core/ui/color');
+const Screen = require('sf-core/device/screen');
+const System = require('sf-core/device/system');
 
 const PgLogin = extend(PgLoginDesign)(
     // Constructor
@@ -50,6 +52,8 @@ function onShow(superOnShow, data = {}) {
                 });
             }
         });
+        if(System.OS === "Android")
+            page.svMain.layout.height = Screen.height - page.statusBar.height;
     }
 
 
