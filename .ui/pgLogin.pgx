@@ -176,12 +176,14 @@
 				"Sizes": "Default"
 			},
 			"userProps": {
-				"width": 256,
+				"width": 300,
 				"height": 113,
 				"left": null,
-				"top": 0,
+				"top": null,
+				"maxWidth": null,
 				"flexProps": {
-					"justifyContent": "SPACE_BETWEEN"
+					"justifyContent": "SPACE_BETWEEN",
+					"alignSelf": "AUTO"
 				}
 			},
 			"className": ".flexLayout",
@@ -256,10 +258,10 @@
 				"Sizes": "Default"
 			},
 			"userProps": {
-				"width": 256,
+				"width": 300,
 				"height": 65,
 				"left": null,
-				"top": 0
+				"top": null
 			},
 			"className": ".flexLayout",
 			"props": {
@@ -329,7 +331,7 @@
 			"userProps": {
 				"width": 256,
 				"height": null,
-				"left": 0,
+				"left": null,
 				"top": null
 			},
 			"className": ".flexLayout",
