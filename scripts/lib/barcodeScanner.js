@@ -66,7 +66,7 @@ function scanBarcode(page) {
         function showScanner() {
 
             barcodeScanner.onResult = function(e) {
-                resolve(e);
+                resolve(e.barcode);
                 hideScanner();
             };
 
