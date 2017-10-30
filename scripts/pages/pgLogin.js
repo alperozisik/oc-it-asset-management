@@ -26,7 +26,6 @@ function onShow(superOnShow, data = {}) {
     if (data.appStart) {
         rau.checkUpdate();
 
-
         fingerprint.init({
             userNameTextBox: page.tbName,
             passwordTextBox: page.tbPassword,
@@ -63,6 +62,8 @@ function onShow(superOnShow, data = {}) {
  */
 function onLoad(superOnLoad) {
     superOnLoad();
+    const page = this;
+    // page.svMain.layout.flexGrow = 1;
 }
 
 module && (module.exports = PgLogin);
