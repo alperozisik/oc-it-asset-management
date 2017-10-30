@@ -131,7 +131,7 @@
 				"width": null,
 				"height": 26,
 				"id": 1002,
-				"marginBottom": 18,
+				"marginBottom": 7,
 				"flexProps": {
 					"flexDirection": "ROW"
 				}
