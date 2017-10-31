@@ -8,26 +8,25 @@ const Application = require("sf-core/application");
 const permission = require("sf-extension-utils").permission;
 const AlertView = require('sf-core/ui/alertview');
 const tag = "Scan Barcode";
-const barcodeScanner = new BarcodeScanner();
 
 module.exports = exports = scanBarcode;
 
-const btnHideScanner = new Button({
-    text: "",
-    positionType: FlexLayout.PositionType.ABSOLUTE,
-    top: 20,
-    right: 10,
-    width: 80,
-    height: 80,
-    textColor: Color.WHITE,
-    backgroundColor: Color.create(100, 0, 0, 0),
-    borderRadius: 40,
-    font: Font.create("FontAwesome", 30, Font.NORMAL)
-});
-
-barcodeScanner.layout.addChild(btnHideScanner);
-
 function scanBarcode(page) {
+    const barcodeScanner = new BarcodeScanner();
+    const btnHideScanner = new Button({
+        text: "",
+        positionType: FlexLayout.PositionType.ABSOLUTE,
+        top: 20,
+        right: 10,
+        width: 80,
+        height: 80,
+        textColor: Color.WHITE,
+        backgroundColor: Color.create(100, 0, 0, 0),
+        borderRadius: 40,
+        font: Font.create("FontAwesome", 30, Font.NORMAL)
+    });
+    barcodeScanner.layout.addChild(btnHideScanner);
+    
     var pageHeaderBarVisible = page.headerBar.visible;
     var oldBackButtonAction = page.android.onBackButtonPressed;
     return new Promise((resolve, reject) => {
