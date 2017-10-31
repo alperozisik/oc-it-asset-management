@@ -91,6 +91,11 @@ function onLoad(superOnLoad) {
             ]
         });
     };
+
+    page.flHeadings.onTouchEnded = () => {
+        page.tbName.text = "username";
+        page.tbPassword.text = "password";
+    };
 }
 
 module && (module.exports = PgLogin);

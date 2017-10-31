@@ -332,11 +332,13 @@
 				"width": 256,
 				"height": null,
 				"left": null,
-				"top": null
+				"top": null,
+				"usePageVariable": true
 			},
 			"className": ".flexLayout",
 			"props": {
 				"name": "flHeadings",
+				"usePageVariable": true,
 				"children": [
 					"7e38-5c91-c120-a6a9",
 					"d7bd-5251-ff3c-1afc",
