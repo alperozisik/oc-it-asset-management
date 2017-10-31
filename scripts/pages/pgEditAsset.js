@@ -49,28 +49,34 @@ const PgEditAsset = extend(PgEditAssetDesign)(
  * @param {function} superOnShow super onShow function
  * @param {Object} parameters passed from Router.go function
  */
-function onShow(superOnShow, data = {}) {
+function onShow(superOnShow, data) {
     superOnShow();
     const page = this;
+    data = data || page.data || {};
+    page.data = data;
     modifyPage(page);
     if (data.newAsset) {
         let newBarcode = null;
         data.data && (newBarcode = data.data.barcode);
         page.headerBar.title = "New Asset";
-        page.tbAssetNumber.text = newBarcode || "";
-        page.tbSerialNumber.text = "";
-        page.tbMake.text = "";
-        page.lblModel.text = "Model";
-        page.tbLocation.text = "";
+        if (!data.newAssetInit) {
+            page.tbAssetNumber.text = newBarcode || "";
+            page.tbSerialNumber.text = "";
+            page.tbMake.text = "";
+            page.lblModel.text = "Model";
+            page.tbLocation.text = "";
+            
+        }
     }
-    else {
-        page.headerBar.title = "Edit Asset";
-        page.tbAssetNumber.text = "11111111";
-        page.tbSerialNumber.text = "123QWE123456";
-        page.tbMake.text = "Lorem Ipsum";
-        page.lblModel.text = "Macbook Pro";
-        page.tbLocation.text = "Lorem Ipsum";
+    if (data.assetDetails && !data.newAssetInit) {
+        !data.newAsset && (page.headerBar.title = "Edit Asset");
+        page.tbAssetNumber.text = data.assetDetails.assetNumber;
+        page.tbSerialNumber.text = data.assetDetails.serialNumber;
+        page.tbMake.text = data.assetDetails.make;
+        page.lblModel.text = data.assetDetails.model;
+        page.tbLocation.text = data.assetDetails.location;
     }
+    data.newAssetInit = true;
 
     if (!page.hbiSave) {
         let hbiSave = new HeaderBarItem({
@@ -119,6 +125,7 @@ function onLoad(superOnLoad) {
 
     page.imgCamera.onTouchEnded = function() {
         barcodeScanner(page).then((e) => {
+            page.data.assetDetails.assetNumber = e.text;
             page.tbAssetNumber.text = e.text;
         });
     };

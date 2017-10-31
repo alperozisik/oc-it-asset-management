@@ -29,7 +29,13 @@ function onShow(superOnShow, data = {}) {
       image: Image.createFromFile("images://edit.png"),
       onPress: function() {
         Router.go("pgEditAsset", {
-          assetDetails: {}
+          assetDetails: {
+            assetNumber: page.lblAssetNumber.text,
+            serialNumber: page.lblSerialNumber.text,
+            make: page.lblMake.text,
+            model: page.lblModel.text,
+            location: page.lblLocation.text
+          }
         });
       }
     });

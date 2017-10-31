@@ -118,7 +118,13 @@ function submitSearchForm() {
                 onClick: function() {
                     Router.go("pgEditAsset", {
                         newAsset: true,
-                        data: page.data
+                        assetDetails: {
+                            assetNumber: page.tbAssetNumber.text,
+                            serialNumber: page.tbSerialNumber.text,
+                            make: page.tbMake.text,
+                            model: page.lblModel.text,
+                            location: page.tbLocation.text
+                        }
                     });
                 },
             },
