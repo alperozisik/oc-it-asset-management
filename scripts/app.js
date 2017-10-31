@@ -22,7 +22,7 @@ stylerBuilder.setActiveTheme(settings.config.theme.currentTheme);
 
 var pages = ["pgLogin",
     "pgSearch",
-    "pgAddNewRecord",
+    // "pgAddNewRecord",
     "pgAssetList",
     "pgAssetDetail",
     "pgEditAsset"

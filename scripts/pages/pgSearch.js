@@ -7,6 +7,7 @@ const Image = require('sf-core/ui/image');
 const Picker = require("sf-core/ui/picker");
 const Router = require("sf-core/ui/router");
 const barcodeScanner = require("../lib/barcodeScanner");
+const AlertView = require('sf-core/ui/alertview');
 
 const models = [
     "Model A",
@@ -47,7 +48,7 @@ const PgSearch = extend(PgSearchDesign)(
             let hbiScan = new HeaderBarItem({
                 image: Image.createFromFile("images://camera_search.png"),
                 onPress: function() {
-                    barcodeScanner(page).then((e)=> {
+                    barcodeScanner(page).then((e) => {
                         page.tbAssetNumber.text = e.text;
                     });
                 }
@@ -108,7 +109,28 @@ function submitSearchForm() {
 
     page.tbLocation.removeFocus();
 
-    Router.go("pgAddNewRecord");
+    alert({
+        message: "No records found. Do you want to create an asset with this ID?",
+        title: "Add New Record",
+        buttons: [{
+                text: "Yes",
+                type: AlertView.Android.ButtonType.POSITIVE,
+                onClick: function() {
+                    Router.go("pgEditAsset", {
+                        newAsset: true,
+                        data: page.data
+                    });
+                },
+            },
+            {
+                text: "No",
+                type: AlertView.Android.ButtonType.NEGATIVE,
+                onClick: function() {
+                    Router.go("pgAssetList");
+                },
+            }
+        ]
+    });
 }
 
 function pickModel() {
